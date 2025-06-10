@@ -93,7 +93,7 @@ const Hero = () => {
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
       >
-        <video
+        {/* <video
           src='videos/hero-1.mp4'
           autoPlay
           loop
@@ -104,8 +104,8 @@ const Hero = () => {
           id="current-video"
           className="absolute left-0 top-0 size-full object-cover object-center"
           // onLoadedData={handleVideoLoad}
-        />
-        {/* <div>
+        /> */}
+        <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <VideoPreview>
               <div
@@ -117,7 +117,7 @@ const Hero = () => {
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
                   loop
                   muted
-                  // playsInline // Essential for iOS inline playback
+                  playsInline // Essential for iOS inline playback
                   // webkit-playsInline // For broader iOS compatibility
                   // preload="metadata" // Recommended for performance
                   id="current-video"
@@ -133,7 +133,7 @@ const Hero = () => {
             src={getVideoSrc(currentIndex)}
             loop
             muted
-            // playsInline // Essential for iOS inline playback
+            playsInline // Essential for iOS inline playback
             // webkit-playsInline // For broader iOS compatibility
             // preload="metadata" // Recommended for performance
             id="next-video"
@@ -147,13 +147,13 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            // playsInline // Essential for iOS inline playback
+            playsInline // Essential for iOS inline playback
             // webkit-playsInline // For broader iOS compatibility
             // preload="metadata" // 
             className="absolute left-0 top-0 size-full object-cover object-center"
             onLoadedData={handleVideoLoad}
           />
-        </div> */}
+        </div>
 
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
           Foundations
