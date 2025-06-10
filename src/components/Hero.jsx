@@ -87,22 +87,25 @@ const Hero = () => {
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
-      {loading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
-          {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
-          <div className="three-body">
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-          </div>
-        </div>
-      )}
+
 
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
       >
-        <div>
+        <video
+          src='videos/hero-1.mp4'
+          autoPlay
+          loop
+          muted
+          playsInline // Essential for iOS inline playback
+          // webkit-playsInline // For broader iOS compatibility
+          // preload="metadata" // Recommended for performance
+          id="current-video"
+          className="absolute left-0 top-0 size-full object-cover object-center"
+          // onLoadedData={handleVideoLoad}
+        />
+        {/* <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <VideoPreview>
               <div
@@ -150,7 +153,7 @@ const Hero = () => {
             className="absolute left-0 top-0 size-full object-cover object-center"
             onLoadedData={handleVideoLoad}
           />
-        </div>
+        </div> */}
 
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
           Foundations
