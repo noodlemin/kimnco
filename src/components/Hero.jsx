@@ -114,8 +114,8 @@ const Hero = () => {
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
                   loop
                   muted
-                  playsinline // Essential for iOS inline playback
-                  webkit-playsinline // For broader iOS compatibility
+                  playsInline // Essential for iOS inline playback
+                  webkit-playsInline // For broader iOS compatibility
                   preload="metadata" // Recommended for performance
                   id="current-video"
                   className="size-64 origin-center scale-150 object-cover object-center"
@@ -130,8 +130,8 @@ const Hero = () => {
             src={getVideoSrc(currentIndex)}
             loop
             muted
-            playsinline // Essential for iOS inline playback
-            webkit-playsinline // For broader iOS compatibility
+            playsInline // Essential for iOS inline playback
+            webkit-playsInline // For broader iOS compatibility
             preload="metadata" // Recommended for performance
             id="next-video"
             className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
@@ -144,8 +144,8 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            playsinline // Essential for iOS inline playback
-            webkit-playsinline // For broader iOS compatibility
+            playsInline // Essential for iOS inline playback
+            webkit-playsInline // For broader iOS compatibility
             preload="metadata" // 
             className="absolute left-0 top-0 size-full object-cover object-center"
             onLoadedData={handleVideoLoad}
@@ -162,8 +162,8 @@ const Hero = () => {
               Kim&Co
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-            {t('hero.tagline')}
+            <p className="mb-5 max-w-64 font-robert-regular text-blue-100" dangerouslySetInnerHTML={{ __html: t('hero.tagline')}}>
+            
             </p>
 
             <Button
