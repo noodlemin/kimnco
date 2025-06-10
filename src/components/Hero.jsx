@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { TiLocationArrow } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
@@ -10,6 +11,8 @@ import VideoPreview from "./VideoPreview";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
 
@@ -151,14 +154,16 @@ const Hero = () => {
             </h1>
 
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-            Developing Spaces <br /> Defining Futures
+            {t('hero.tagline1')}
+            <br />
+            {t('hero.tagline2')}
             </p>
 
             <Button
-              id="watch-trailer"
-              title="Watch trailer"
+              id="portfolio"
+              title={t('hero.button')}
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-yellow-300 flex-center gap-1"
+              containerClass="bg-yellow-500 flex-center gap-1"
             />
           </div>
         </div>
