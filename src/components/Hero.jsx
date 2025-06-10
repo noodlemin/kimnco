@@ -114,7 +114,7 @@ const Hero = () => {
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
                   loop
                   muted
-                  playsInline // Essential for iOS inline playback
+                  // playsInline // Essential for iOS inline playback
                   // webkit-playsInline // For broader iOS compatibility
                   // preload="metadata" // Recommended for performance
                   id="current-video"
@@ -130,7 +130,7 @@ const Hero = () => {
             src={getVideoSrc(currentIndex)}
             loop
             muted
-            playsInline // Essential for iOS inline playback
+            // playsInline // Essential for iOS inline playback
             // webkit-playsInline // For broader iOS compatibility
             // preload="metadata" // Recommended for performance
             id="next-video"
@@ -144,7 +144,7 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            playsInline // Essential for iOS inline playback
+            // playsInline // Essential for iOS inline playback
             // webkit-playsInline // For broader iOS compatibility
             // preload="metadata" // 
             className="absolute left-0 top-0 size-full object-cover object-center"
