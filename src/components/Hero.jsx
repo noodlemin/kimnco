@@ -127,6 +127,8 @@ const Hero = () => {
             src={getVideoSrc(currentIndex)}
             loop
             muted
+            playsinline
+            webkit-playsinline
             id="next-video"
             className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
             onLoadedData={handleVideoLoad}
