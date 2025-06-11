@@ -49,7 +49,7 @@ const LanguageToggle = ({ className }) => {
       {/* Sliding indicator */}
       <div
         className={clsx(
-          "absolute h-8 w-10 rounded-full bg-gray-200 shadow-md transition-transform duration-300 ease-in-out",
+          "absolute h-8 w-10 rounded-full bg-yellow-500 shadow-md transition-transform duration-300 ease-in-out",
           "sm:h-8 sm:w-10" // Note: Fixed 'w-10' here from 'w-10' in original to 'sm:w-10'
         )}
         style={{
@@ -63,14 +63,14 @@ const LanguageToggle = ({ className }) => {
       <span
         className={`z-10 flex-1 text-center
                     font-general text-xs uppercase
-                    transition-colors duration-300 ${isKorean ? 'text-gray-800' : 'text-gray-500'}`}
+                    transition-colors duration-300 ${isKorean ? 'text-gray-800' : 'text-white'}`}
       >
         KR
       </span>
       <span
         className={`z-10 flex-1 text-center
                     font-general text-xs uppercase
-                    transition-colors duration-300 ${!isKorean ? 'text-gray-800' : 'text-gray-500'}`}
+                    transition-colors duration-300 ${!isKorean ? 'text-gray-800' : 'text-white'}`}
       >
         EN
       </span>
