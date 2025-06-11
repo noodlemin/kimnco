@@ -98,12 +98,12 @@ const Hero = () => {
             <VideoPreview>
               <div
                 onClick={handleMiniVdClick}
-                className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100 inivisible"
+                className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
               >
                 <video
                   ref={nextVdRef}
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
-                  loop
+                  // loop
                   muted
                   playsInline // Essential for iOS inline playback
                   preload="metadata" // Recommended for performance
@@ -118,7 +118,7 @@ const Hero = () => {
           <video
             ref={nextVdRef}
             src={getVideoSrc(currentIndex)}
-            loop
+            // loop
             muted
             playsInline // Essential for iOS inline playback
             preload="metadata" // Recommended for performance
@@ -131,7 +131,7 @@ const Hero = () => {
               currentIndex === totalVideos - 1 ? 1 : currentIndex
             )}
             autoPlay
-            loop
+            // loop
             muted
             playsInline // Essential for iOS inline playback
             preload="metadata"
