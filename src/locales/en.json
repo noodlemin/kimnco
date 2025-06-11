@@ -14,15 +14,8 @@
     "english": "English",
     "korean": "한국어"
   },
-  "nav": {
-    "products": "Products",
-    "links": {
-      "about": "About",
-      "nexus": "Nexus",
-      "vault": "Vault",
-      "prologue": "Prologue",
-      
-      "contact": "Contact"
-    }
-  }
+  "nav": [
+    {"text": "about", "id": "about" },
+    {"text": "contact", "id": "contact" }
+  ]
 }

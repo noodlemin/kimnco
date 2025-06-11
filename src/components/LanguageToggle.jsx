@@ -65,7 +65,7 @@ const LanguageToggle = ({ className }) => {
                     font-general text-xs uppercase
                     transition-colors duration-300 ${isKorean ? 'text-gray-800' : 'text-white'}`}
       >
-        KR
+        한
       </span>
       <span
         className={`z-10 flex-1 text-center

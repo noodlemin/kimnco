@@ -14,14 +14,8 @@
     "english": "English",
     "korean": "한국어"
   },
-  "nav": {
-    "products": "포트폴리오",
-    "links": {
-      "about": "대하여",
-      "nexus": "ㅇㅇ",
-      "vault": "볼트",
-      "prologue": "프롤로그",
-      "contact": "연락처"
-    }
-  }
+  "nav": [
+    {"text": "회사소개", "id": "about" },
+    {"text": "문의", "id": "about" }
+  ]
 }

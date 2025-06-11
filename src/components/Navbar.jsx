@@ -6,12 +6,12 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from "./LanguageToggle";
 
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+// const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
 const NavBar = () => {
   const { t } = useTranslation();
+  const navItems = t('nav', { returnObjects: true });
   const navContainerRef = useRef(null);
-
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -48,9 +48,9 @@ const NavBar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           {/* Logo */}
-          <div className="flex items-center">
+          <a href="/" className="flex items-center">
             <img src="/img/logo.png" alt="logo" className="w-10" />
-          </div>
+          </a>
 
           {/* Right side content for mobile and desktop */}
           <div className="flex h-full items-center">
@@ -59,10 +59,10 @@ const NavBar = () => {
               {navItems.map((item, index) => (
                 <a
                   key={index}
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item.id}`}
                   className="nav-hover-btn"
                 >
-                  {item}
+                  {item.text}
                 </a>
               ))}
             </div>

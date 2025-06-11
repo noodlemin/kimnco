@@ -88,25 +88,13 @@ const Hero = () => {
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
 
-
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
       >
-        {/* <video
-          src='videos/hero-1.mp4'
-          autoPlay
-          loop
-          muted
-          playsInline // Essential for iOS inline playback
-          // webkit-playsInline // For broader iOS compatibility
-          // preload="metadata" // Recommended for performance
-          id="current-video"
-          className="absolute left-0 top-0 size-full object-cover object-center"
-          // onLoadedData={handleVideoLoad}
-        /> */}
+
         <div>
-          <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+          <div className="hidden md:block mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <VideoPreview>
               <div
                 onClick={handleMiniVdClick}
@@ -118,7 +106,6 @@ const Hero = () => {
                   loop
                   muted
                   playsInline // Essential for iOS inline playback
-                  webkit-playsinline // For broader iOS compatibility
                   preload="metadata" // Recommended for performance
                   id="current-video"
                   className="size-64 origin-center scale-150 object-cover object-center"
@@ -134,7 +121,6 @@ const Hero = () => {
             loop
             muted
             playsInline // Essential for iOS inline playback
-            webkit-playsinline // For broader iOS compatibility
             preload="metadata" // Recommended for performance
             id="next-video"
             className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
@@ -148,7 +134,6 @@ const Hero = () => {
             loop
             muted
             playsInline // Essential for iOS inline playback
-            webkit-playsinline // For broader iOS compatibility
             preload="metadata"
             className="absolute left-0 top-0 size-full object-cover object-center"
             onLoadedData={handleVideoLoad}
@@ -165,9 +150,7 @@ const Hero = () => {
               Kim&Co
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100" dangerouslySetInnerHTML={{ __html: t('hero.tagline')}}>
-            
-            </p>
+            <p className="mb-5 max-w-64 font-robert-regular text-2xl text-blue-100" dangerouslySetInnerHTML={{ __html: t('hero.tagline')}} />
 
             <Button
               id="portfolio"
@@ -175,6 +158,7 @@ const Hero = () => {
               leftIcon={<TiLocationArrow />}
               containerClass="bg-yellow-500 flex-center gap-1"
             />
+            
           </div>
         </div>
       </div>
