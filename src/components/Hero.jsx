@@ -41,6 +41,7 @@ const Hero = () => {
         <div>
           <video
             src="videos/hero.mp4"
+            loop
             autoPlay
             muted
             playsInline
