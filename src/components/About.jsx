@@ -42,10 +42,9 @@ const About = () => {
         />
 
         <div className="about-subtext">
-          lol
+          {t('about.subtext1')}
           <p className="text-gray-500">
-            Zentry unites every player from countless games and platforms, both
-            digital and physical, into a unified Play Economy
+            {t('about.subtext2')}
           </p>
         </div>
       </div>

@@ -69,7 +69,7 @@ const NavBar = () => {
 
             {/* LanguageToggle visible on all screens, positioned right */}
             {/* On desktop, it will follow the nav items. On mobile, it will be the primary right-side element. */}
-            <LanguageToggle className="ml-4 md:ml-10" /> {/* Adjusted margin for mobile/desktop */}
+            <LanguageToggle className="ml-4 md:ml-10" />
           </div>
         </nav>
       </header>
