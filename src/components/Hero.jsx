@@ -13,31 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const { t } = useTranslation();
-  
-  const playlist = [
-    "videos/hero-1.mp4",
-    "videos/hero-2.mp4",
-    "videos/hero-3.mp4",
-    "videos/hero-4.mp4",
-  ];
-
-  // State to manage the index of the currently playing video
-  const [currentIndex, setCurrentIndex] = useState(0); 
-  const videoRef = useRef(null);
-
-  const handleVideoEnded = () => {
-    const nextIndex = (currentIndex + 1) % playlist.length;
-    setCurrentIndex(nextIndex);
-  };
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play().catch(error => {
-        console.error("Video interrupted:", error);
-      });
-    }
-  }, [currentIndex]); 
 
   useGSAP(() => {
     gsap.set("#video-frame", {
@@ -65,13 +40,11 @@ const Hero = () => {
       >
         <div>
           <video
-            ref={videoRef}
-            src={playlist[currentIndex]}
+            src="videos/hero.mp4"
             autoPlay
             muted
             playsInline
             preload="auto"
-            onEnded={handleVideoEnded}
             className="absolute left-0 top-0 size-full object-cover object-center"
           />
         </div>
