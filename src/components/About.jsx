@@ -30,7 +30,7 @@ const About = () => {
   });
 
   return (
-    <div id="about" className="min-h-screen w-screen">
+    <div id="about" className="min-h-screen w-screen pt-1">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <p className="font-general text-2xl uppercase md:text-3xl lg:text-4xl">
           {t('about.welcome')}
