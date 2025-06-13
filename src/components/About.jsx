@@ -32,7 +32,7 @@ const About = () => {
   return (
     <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
-        <p className="font-general text-2xl uppercase md:text-5xl lg:text-6xl">
+        <p className="font-general text-2xl uppercase md:text-3xl lg:text-4xl">
           {t('about.welcome')}
         </p>
 
@@ -42,8 +42,8 @@ const About = () => {
         />
 
         <div className="about-subtext">
-          <p className="text-gray-500" dangerouslySetInnerHTML={{ __html: t('about.subtext')}}>
-            {/* {t('about.subtext')} */}
+          <p className="text-gray-500">
+            {t('about.subtext')}
           </p>
         </div>
       </div>
