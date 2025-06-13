@@ -7,15 +7,24 @@
   "about": {
     "welcome": "Since",
     "discover": "1992",
-    "subtext1": "Trust",
-    "subtext2": "1992년부터 김앤코는 탁월한 안목으로 미래 가치 있는 토지를 발굴하고, 섬세한 기술력으로 꿈이 현실이 되는 주거 공간을 창조하며, 고객과의 변함없는 신뢰를 쌓아왔습니다."
+    "subtext": "1992년부터 탁월한 안목으로 미래 가치 있는 토지를 발굴하고, </br> 섬세한 기술력으로 꿈이 현실이 되는 주거 공간을 창조하며, </br> 고객과의 변함없는 신뢰를 쌓아왔습니다."
   },
-  "language": {
-    "english": "English",
-    "korean": "한국어"
-  },
+
   "nav": [
     {"text": "회사소개", "id": "about" },
     {"text": "문의", "id": "about" }
-  ]
+  ],
+
+  "features": {
+    "intro-title": "",
+    "intro-text": "",
+    "feature1-title": "",
+    "feature1-text": "",
+    "feature2-title": "",
+    "feature2-text": "",
+    "feature3-title": "",
+    "feature3-text": "",
+    "feature4-title": "",
+    "feature4-text": ""
+  }
 }
