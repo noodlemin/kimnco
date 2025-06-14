@@ -14,7 +14,7 @@ i18n
       en: { translation: en },
     },
     lng: 'ko',
-    fallbackLng: 'ko', // use English if detected language is not available
+    fallbackLng: 'en', // use English if detected language is not available
     debug: true, // set to false in production
     interpolation: {
       escapeValue: false, // react handles XSS protection
