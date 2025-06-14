@@ -68,14 +68,13 @@ export const BentoCard = ({ src, title, description }) => {
         preload="auto"
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
-      <div className="relative z-10 flex size-full flex-col justify-end items-end p-5 text-white">
+      <div className="relative z-10 flex size-full flex-col justify-end items-end p-10 text-white text-wrap text-right">
         <div>
           <h1 className="bento-title special-font">{title}</h1>
           {description && (
-            <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
+            <p className="mt-3 max-w-54 text-xs md:text-base">{description}</p>
           )}
         </div>
-
       </div>
     </div>
   );
@@ -87,9 +86,9 @@ const Features = () => {
     <section className="bg-black pb-52">
       <div className="container mx-auto px-3 md:px-10">
         <div className="px-5 pt-32 pb-5">
-          <p className="font-circular-web text-2xl text-blue-50">
+          <h1 className="bento-title special-font text-5xl text-blue-50 mb-5">
             {t('features.intro-title')}
-          </p>
+          </h1>
           {/* <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
             {t('features.intro-text')}
           </p> */}
@@ -103,7 +102,7 @@ const Features = () => {
                 {t('features.feature1-title')}
               </>
             }
-            description={t('features.feature1-text')}
+            // description={t('features.feature1-text')}
             isComingSoon
           />
         </BentoTilt>
@@ -117,8 +116,7 @@ const Features = () => {
                   {t('features.feature2-title')}
                 </>
               }
-              description={t('features.feature2-text')}
-              isComingSoon
+              // description={t('features.feature2-text')}
             />
           </BentoTilt>
 
@@ -130,8 +128,7 @@ const Features = () => {
                   {t('features.feature3-title')}
                 </>
               }
-              description={t('features.feature3-text')}
-              isComingSoon
+              // description={t('features.feature3-text')}
             />
           </BentoTilt>
 
@@ -143,30 +140,10 @@ const Features = () => {
                   {t('features.feature4-title')}
                 </>
               }
-              description={t('features.feature4-text')}
-              isComingSoon
+              // description={t('features.feature4-text')}
             />
           </BentoTilt>
-
-          {/* <BentoTilt className="bento-tilt_2">
-            <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
-              <h1 className="bento-title special-font max-w-64 text-black">
-                M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
-              </h1>
-
-              <TiLocationArrow className="m-5 scale-[5] self-end" />
-            </div>
-          </BentoTilt> */}
-
-          {/* <BentoTilt className="bento-tilt_2">
-            <video
-              src="videos/feature-5.mp4"
-              loop
-              muted
-              autoPlay
-              className="size-full object-cover object-center"
-            />
-          </BentoTilt> */}
+          
         </div>
       </div>
     </section>
