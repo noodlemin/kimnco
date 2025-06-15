@@ -39,7 +39,9 @@ export const BentoTilt = ({ children, className = "" }) => {
   );
 };
 
-export const BentoCard = ({ src, title, description }) => {
+export const BentoCard = ({ src, title, description}) => {
+  const { t } = useTranslation();
+
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
   const hoverButtonRef = useRef(null);
@@ -68,12 +70,33 @@ export const BentoCard = ({ src, title, description }) => {
         preload="auto"
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
-      <div className="relative z-10 flex size-full flex-col justify-end items-end p-10 text-white text-wrap text-right">
-        <div>
+      <div className="relative z-10 flex size-full flex-col p-10 text-white text-wrap">
+        <div className="flex-grow">
           <h1 className="bento-title special-font">{title}</h1>
           {description && (
             <p className="mt-3 max-w-54 text-xs md:text-base">{description}</p>
           )}
+        </div>
+
+        <div
+          ref={hoverButtonRef}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end"
+        >
+          {/* Radial gradient hover effect */}
+          <div
+            className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+            style={{
+              opacity: hoverOpacity,
+              background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`,
+            }}
+          />
+          <TiLocationArrow className="relative z-20" />
+          <p className="relative z-20">
+            {t('features.feature-button')}
+          </p>
         </div>
       </div>
     </div>
@@ -83,10 +106,10 @@ export const BentoCard = ({ src, title, description }) => {
 const Features = () => {
   const { t } = useTranslation();
   return(
-    <section className="bg-black pb-52">
-      <div className="container mx-auto px-3 md:px-10">
-        <div className="px-5 pt-32 pb-5">
-          <h1 className="bento-title special-font text-5xl text-blue-50 mb-5">
+    <section className="bg-black pb-24 md:pb-52">
+      <div className="container mx-auto px-4 md:px-10">
+        <div className="px-2 md:px-5 pt-24 md:pt-32 pb-5">
+          <h1 className="bento-title special-font text-4xl md:text-5xl text-blue-50 mb-">
             {t('features.intro-title')}
           </h1>
           {/* <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
@@ -103,7 +126,7 @@ const Features = () => {
               </>
             }
             // description={t('features.feature1-text')}
-            isComingSoon
+            // isComingSoon
           />
         </BentoTilt>
 
@@ -120,7 +143,7 @@ const Features = () => {
             />
           </BentoTilt>
 
-          <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+          <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:ms-0">
             <BentoCard
               src="videos/feature-3.mp4"
               title={
@@ -132,7 +155,7 @@ const Features = () => {
             />
           </BentoTilt>
 
-          <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoTilt className="bento-tilt_1 md:col-span-1 md:me-0">
             <BentoCard
               src="videos/feature-4.mp4"
               title={

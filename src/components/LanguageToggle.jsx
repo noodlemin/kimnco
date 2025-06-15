@@ -42,14 +42,14 @@ const LanguageToggle = ({ className }) => {
 
   // Define translation values based on screen size for the slider's position.
   const koreanPosition = isMobile ? 'translateX(15%)' : 'translateX(5%)';
-  const englishPosition = isMobile ? 'translateX(150%)' : 'translateX(115%)';
+  const englishPosition = isMobile ? 'translateX(145%)' : 'translateX(115%)';
 
   return (
     <div
       onClick={handleToggle}
       className={clsx(
         "relative flex h-12 w-28 cursor-pointer items-center rounded-full p-1",
-        "bg-gray-700 sm:h-10 sm:w-24 focus-within:ring-2 focus-within:ring-yellow-400 focus-within:ring-offset-2 focus-within:ring-offset-gray-900",
+        "sm:h-10 sm:w-24 focus-within:ring-2 focus-within:ring-yellow-400 focus-within:ring-offset-2 focus-within:ring-offset-gray-900",
         className
       )}
       role="switch"
