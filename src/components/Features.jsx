@@ -85,7 +85,7 @@ export const BentoCard = ({ src, title, description}) => {
           onMouseMove={handleMouseMove}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end"
+          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end font-general"
         >
           {/* Radial gradient hover effect */}
           <div
@@ -108,7 +108,7 @@ export const BentoCard = ({ src, title, description}) => {
 const Features = () => {
   const { t } = useTranslation();
   return(
-    <section className="bg-black pb-24 md:pb-52">
+    <section className="bg-black pb-24 md:pb-48">
       <div className="container mx-auto px-4 md:px-10">
         <div className="px-2 md:px-5 pt-24 md:pt-32 pb-5">
           <h1 className="bento-title special-font text-4xl md:text-5xl text-blue-50 mb-">
@@ -172,7 +172,6 @@ const Features = () => {
       </div>
       <LogoShowcase t={t('features.logo')}/>
     </section>
-    
   );
 }
 

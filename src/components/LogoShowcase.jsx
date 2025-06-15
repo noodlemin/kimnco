@@ -27,9 +27,9 @@ const LogoIcon = ({ icon }) => {
 };
 
 const LogoShowcase = ({t}) => (
-  <div className="my-12 relative">
+  <div className="mt-32 relative md:-mt-60">
     <div className="text-center">
-      <h3 className="text-sm font-bold tracking-wider text-gray-400 uppercase">
+      <h3 className="text-2xl md:text-4xl font-bold tracking-wider text-gray-400 uppercase mb-5">
         {t}
       </h3>
     </div>
@@ -45,6 +45,27 @@ const LogoShowcase = ({t}) => (
         {logoIconsList.map((icon, index) => (
           <LogoIcon key={index} icon={icon} />
         ))}
+
+        {logoIconsList.map((icon, index) => (
+          <LogoIcon key={index} icon={icon} />
+        ))}
+        {logoIconsList.map((icon, index) => (
+          <LogoIcon key={index} icon={icon} />
+        ))}
+        {logoIconsList.map((icon, index) => (
+          <LogoIcon key={index} icon={icon} />
+        ))}
+        {logoIconsList.map((icon, index) => (
+          <LogoIcon key={index} icon={icon} />
+        ))}
+        {logoIconsList.map((icon, index) => (
+          <LogoIcon key={index} icon={icon} />
+        ))}
+        {logoIconsList.map((icon, index) => (
+          <LogoIcon key={index} icon={icon} />
+        ))}
+
+
       </div>
     </div>
   </div>
