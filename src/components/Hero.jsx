@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { TiLocationArrow } from "react-icons/ti";
-import { HiArrowDown } from "react-icons/hi2";
+import { FaAngleDoubleDown } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from 'react-i18next';
 
@@ -76,7 +76,7 @@ const Hero = () => {
           <a
             href="#about"
           >
-            <HiArrowDown className="text-3xl" />
+            <FaAngleDoubleDown className="text-3xl" />
           </a>
         </div>
       </div>

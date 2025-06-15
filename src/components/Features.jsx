@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import { useTranslation } from 'react-i18next';
+import LogoShowcase from "./LogoShowcase";
+
 
 export const BentoTilt = ({ children, className = "" }) => {
   const [transformStyle, setTransformStyle] = useState("");
@@ -166,10 +168,11 @@ const Features = () => {
               // description={t('features.feature4-text')}
             />
           </BentoTilt>
-          
         </div>
       </div>
+      <LogoShowcase t={t('features.logo')}/>
     </section>
+    
   );
 }
 
