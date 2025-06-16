@@ -41,7 +41,7 @@ export const BentoTilt = ({ children, className = "" }) => {
   );
 };
 
-export const BentoCard = ({ src, title, description}) => {
+export const BentoCard = ({ src, poster, title, description}) => {
   const { t } = useTranslation();
   const videoRef = useRef(null);
 
@@ -84,10 +84,11 @@ export const BentoCard = ({ src, title, description}) => {
       <video
         ref={videoRef}
         src={src}
+        poster={poster}
         loop
         muted
         // autoPlay
-        // playsInline
+        playsInline
         preload="auto"
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
@@ -141,7 +142,7 @@ const Features = () => {
         <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
           <BentoCard
             src="videos/feature-1.mp4"
-            poster='img/poster1.jpeg'
+            poster="img/poster1.png"
             title={
               <>
                 {t('features.feature1-title')}
@@ -156,7 +157,7 @@ const Features = () => {
           <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
             <BentoCard
               src="videos/feature-2.mp4"
-              poster='img/poster2.jpeg'
+              poster="img/poster2.png"
               title={
                 <>
                   {t('features.feature2-title')}
@@ -169,7 +170,7 @@ const Features = () => {
           <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:ms-0">
             <BentoCard
               src="videos/feature-3.mp4"
-              poster='img/poster3.jpeg'
+              poster="img/poster3.png"
               title={
                 <>
                   {t('features.feature3-title')}
@@ -182,7 +183,7 @@ const Features = () => {
           <BentoTilt className="bento-tilt_1 md:col-span-1 md:me-0">
             <BentoCard
               src="videos/feature-4.mp4"
-              poster='img/poster4.jpeg'
+              poster="img/poster4.png"
               title={
                 <>
                   {t('features.feature4-title')}
