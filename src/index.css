@@ -20,28 +20,40 @@ body {
 /* marquee */
 @keyframes marquee {
   0% {
-    left: 0;
+    transform: translateX(0%); /* Use transform for smooth animation */
   }
   100% {
-    left: -100%;
+    transform: translateX(-50%); /* Moves exactly half the content width for seamless loop */
   }
 }
 .marquee {
-  width: 100dvw;
+  /* width: 0dvw; */
   overflow: hidden;
   position: relative;
+  white-space: nowrap; 
 }
 .marquee-box {
-  display: flex;
+  display: inline-flex; /* Changed from 'flex' to 'inline-flex' for better wrapping within `white-space: nowrap` */
   align-items: center;
-  width: 200%;
+  /* width: 200%; */ /* Remove this, the width will be determined by its content (logos) */
   height: 100%;
-  position: absolute;
-  overflow: hidden;
-  animation: marquee 60s linear infinite;
+  /* position: absolute; */ /* Remove this, it interferes with normal flow and makes it hard to size */
+  animation: marquee 60s linear infinite; /* Keep animation */
+  gap: 50px; /* Use gap for spacing instead of floats or margins on items */
+  /* Add padding if you want space before the first and after the last logo */
+  padding: 0 20px; /* Example padding */
+
+  /* Ensure enough content for infinite scroll */
+  /* This often means duplicating the content inside the marquee-box in React */
 }
+
 .marquee-item {
-  float: left;
+  /* Remove float: left; as we are using flexbox */
+  flex-shrink: 0; /* Prevents items from shrinking */
+}
+/* Pause animation on hover if desired */
+.marquee:hover .marquee-box {
+  animation-play-state: paused;
 }
 
 /* marquee end */
