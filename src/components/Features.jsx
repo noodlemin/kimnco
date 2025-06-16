@@ -43,6 +43,7 @@ export const BentoTilt = ({ children, className = "" }) => {
 
 export const BentoCard = ({ src, title, description}) => {
   const { t } = useTranslation();
+  const videoRef = useRef(null);
 
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
@@ -61,13 +62,31 @@ export const BentoCard = ({ src, title, description}) => {
   const handleMouseEnter = () => setHoverOpacity(1);
   const handleMouseLeave = () => setHoverOpacity(0);
 
+  const handleMouseEnterCard = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.warn("Video playback failed:", err);
+      });
+    }
+  };
+  
+  const handleMouseLeaveCard = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   return (
-    <div className="relative size-full">
+    <div className="relative size-full"
+    onMouseEnter={handleMouseEnterCard} // 👈 Add this
+  onMouseLeave={handleMouseLeaveCard}>
       <video
+        ref={videoRef}
         src={src}
         loop
         muted
-        autoPlay
+        // autoPlay
         playsInline
         preload="auto"
         className="absolute left-0 top-0 size-full object-cover object-center"
