@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        pretendard: ['Pretendard', 'sans-serif'],
         zentry: ["zentry", "sans-serif"],
         general: ["general", "sans-serif"],
         "circular-web": ["circular-web", "sans-serif"],
