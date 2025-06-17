@@ -5,10 +5,11 @@ import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from "./LanguageToggle";
-
+import { Link } from 'react-router-dom';
 // const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
-const NavBar = () => {
+
+const NavBar = ({lang}) => {
   const { t } = useTranslation();
   const navItems = t('nav', { returnObjects: true });
   const navContainerRef = useRef(null);
@@ -57,13 +58,13 @@ const NavBar = () => {
             {/* Desktop Navigation Links (hidden on mobile) */}
             <div className="hidden md:flex h-full items-center">
               {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.id}`}
-                  className="nav-hover-btn"
+                <Link
+                key={index}
+                to={`/${lang}#${item.id}`} // full hash route
+                className="nav-hover-btn"
                 >
                   {item.text}
-                </a>
+                </Link>
               ))}
             </div>
 

@@ -121,8 +121,8 @@ body {
   }
 
   .about-subtext {
-    @apply w-full max-w-screen-lg text-center font-pretendard text-xl md:max-w-2xl mt-8;
-    text-wrap: pretty;
+    @apply text-white max-w-xl px-4 md:px-0 text-lg md:text-xl mx-auto;
+    text-wrap: balance;
   }
 
   .about-image {

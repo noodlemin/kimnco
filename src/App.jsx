@@ -73,11 +73,14 @@ function LanguageValidatorAndContent() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="portfolio" element={<Portfolio />} />
-      {/* You can add more routes here, e.g., <Route path="contact" element={<ContactPage />} /> */}
-    </Routes>
+    <>
+      <NavBar lang={lang} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="portfolio" element={<Portfolio />} />
+        {/* You can add more routes here, e.g., <Route path="contact" element={<ContactPage />} /> */}
+      </Routes>
+    </>
   );
 }
 
@@ -85,7 +88,6 @@ function LanguageValidatorAndContent() {
 function HomePage(){
   return(
     <>
-      <NavBar />
       <Hero />
       <About />
       <Features />

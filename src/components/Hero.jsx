@@ -51,7 +51,7 @@ const Hero = () => {
         </div>
 
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-          Horizons
+          Inc.
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
@@ -62,27 +62,26 @@ const Hero = () => {
 
             <p className="mb-5 max-w-64 font-robert-regular text-2xl text-blue-100" dangerouslySetInnerHTML={{ __html: t('hero.tagline')}} />
 
-            <Button
+            {/* <Button
               id="portfolio"
               title={t('hero.button')}
               leftIcon={<TiLocationArrow />}
               containerClass="bg-yellow-500 flex-center gap-1"
-            />
+            /> */}
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-10 z-50 text-blue-100 flex flex-col items-center gap-2 animate-bounce-subtle animate-bounce"
-        >
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50 text-blue-100 flex flex-col items-center gap-2 animate-bounce-subtle animate-bounce">
           <a
             href="#about"
           >
-            <FaAngleDoubleDown className="text-3xl" />
+            <FaAngleDoubleDown className="text-6xl" />
           </a>
         </div>
       </div>
 
       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        Horizons
+        Inc.
   </h1>
     </div>
   );
