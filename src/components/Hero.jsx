@@ -15,22 +15,41 @@ const Hero = () => {
   const { t } = useTranslation();
 
   useGSAP(() => {
-    gsap.set("#video-frame", {
-      clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
-      borderRadius: "0% 0% 40% 10%",
+    // Use gsap.matchMedia to apply animations conditionally based on screen size
+    let mm = gsap.matchMedia();
+
+    // Desktop animation (min-width: 768px, equivalent to Tailwind's 'md' breakpoint)
+    mm.add("(min-width: 768px)", () => {
+      // Initial state for desktop
+      gsap.set("#video-frame", {
+        clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+        borderRadius: "0% 0% 40% 10%",
+      });
+      // Animation with ScrollTrigger for desktop
+      gsap.from("#video-frame", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        borderRadius: "0% 0% 0% 0%",
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "#video-frame",
+          start: "center center",
+          end: "bottom center",
+          scrub: true,
+        },
+      });
     });
-    gsap.from("#video-frame", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      borderRadius: "0% 0% 0% 0%",
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: "#video-frame",
-        start: "center center",
-        end: "bottom center",
-        scrub: true,
-      },
+
+    // Mobile default state (max-width: 767px)
+    mm.add("(max-width: 767px)", () => {
+      // Ensure the video-frame is a full rectangle on mobile, not clipped
+      gsap.set("#video-frame", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        borderRadius: "0% 0% 0% 0%",
+      });
+      // No ScrollTrigger for clipPath/borderRadius on mobile
     });
-  });
+
+  }, []); // Empty dependency array means it runs once on mount
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">

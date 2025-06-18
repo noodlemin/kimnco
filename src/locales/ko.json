@@ -12,7 +12,7 @@
 
   "nav": [
     {"text": "포트폴리오", "id": "portfolio" },
-    {"text": "문의", "id": "about" }
+    {"text": "문의", "id": "contact" }
   ],
 
   "features": {
