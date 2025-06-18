@@ -1,13 +1,8 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
-import { TiLocationArrow } from "react-icons/ti";
 import { FaAngleDoubleDown } from "react-icons/fa";
-import { useEffect, useRef, useState } from "react";
 import { useTranslation } from 'react-i18next';
-
-
-import Button from "./Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,41 +10,22 @@ const Hero = () => {
   const { t } = useTranslation();
 
   useGSAP(() => {
-    // Use gsap.matchMedia to apply animations conditionally based on screen size
-    let mm = gsap.matchMedia();
-
-    // Desktop animation (min-width: 768px, equivalent to Tailwind's 'md' breakpoint)
-    mm.add("(min-width: 768px)", () => {
-      // Initial state for desktop
-      gsap.set("#video-frame", {
-        clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
-        borderRadius: "0% 0% 40% 10%",
-      });
-      // Animation with ScrollTrigger for desktop
-      gsap.from("#video-frame", {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        borderRadius: "0% 0% 0% 0%",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: "#video-frame",
-          start: "center center",
-          end: "bottom center",
-          scrub: true,
-        },
-      });
+    gsap.set("#video-frame", {
+      clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+      borderRadius: "0% 0% 40% 10%",
     });
-
-    // Mobile default state (max-width: 767px)
-    mm.add("(max-width: 767px)", () => {
-      // Ensure the video-frame is a full rectangle on mobile, not clipped
-      gsap.set("#video-frame", {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        borderRadius: "0% 0% 0% 0%",
-      });
-      // No ScrollTrigger for clipPath/borderRadius on mobile
+    gsap.from("#video-frame", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      borderRadius: "0% 0% 0% 0%",
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#video-frame",
+        start: "center center",
+        end: "bottom center",
+        scrub: true,
+      },
     });
-
-  }, []); // Empty dependency array means it runs once on mount
+  });
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
@@ -81,12 +57,6 @@ const Hero = () => {
 
             <p className="mb-5 max-w-64 font-robert-regular text-2xl text-blue-100" dangerouslySetInnerHTML={{ __html: t('hero.tagline')}} />
 
-            {/* <Button
-              id="portfolio"
-              title={t('hero.button')}
-              leftIcon={<TiLocationArrow />}
-              containerClass="bg-yellow-500 flex-center gap-1"
-            /> */}
           </div>
         </div>
 
