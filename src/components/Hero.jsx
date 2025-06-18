@@ -71,7 +71,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50 text-blue-100 flex flex-col items-center gap-2 animate-bounce-subtle animate-bounce">
+        <div className="absolute bottom-8 inset-x-0 mx-auto z-50 text-blue-100 flex flex-col items-center gap-2 animate-bounce-subtle animate-bounce w-fit">
           <a
             href="#about"
           >

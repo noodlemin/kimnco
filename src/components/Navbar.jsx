@@ -60,7 +60,7 @@ const NavBar = ({lang}) => {
               {navItems.map((item, index) => (
                 <Link
                 key={index}
-                to={`/${lang}#${item.id}`} // full hash route
+                to={`/${lang}/${item.id}`} // full hash route
                 className="nav-hover-btn"
                 >
                   {item.text}
