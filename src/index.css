@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  width: 100dvw;
+  /* width: 100dvw; */
   overflow-x: hidden;
   background-color: #dfdff0;
   font-family: 'Pretendard', "General Sans", sans-serif;
