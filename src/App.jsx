@@ -4,6 +4,8 @@ import Features from "./components/Features";
 import Hero from "./components/Hero";
 import NavBar from "./components/Navbar";
 import Portfolio from './components/Portfolio';
+import Footer from './components/Footer';
+
 
 import { useTranslation } from 'react-i18next';
 
@@ -91,6 +93,7 @@ function HomePage(){
       <Hero />
       <About />
       <Features />
+      <Footer />
     </>
   );
 }
