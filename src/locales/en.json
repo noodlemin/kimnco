@@ -1,8 +1,6 @@
 {
   "hero": {
-    "tagline": "Developing Spaces </br> Defining Futures",
-    "button": "Portfolio",
-    "foundations": "Foundations"
+    "tagline": "Developing Spaces </br> Defining Futures"
   },
   "about": {
     "welcome": "Since",
@@ -37,7 +35,7 @@
     "living": "Living",
     "commercial": "Commercial"
   },
-  
+
   "timeline": {
     "mainTitle": "History",
     "decades": {

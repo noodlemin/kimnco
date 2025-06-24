@@ -1,9 +1,8 @@
 {
   "hero": {
-    "tagline": "공간의 혁신</br>미래의 창조",
-    "button": "포트폴리오",
-    "foundations": "Foundations"
+    "tagline": "공간의 혁신</br>미래의 창조"
   },
+  
   "about": {
     "welcome": "Since",
     "discover": "1992",

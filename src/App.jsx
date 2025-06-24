@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -61,6 +62,7 @@ function LanguageLayout() {
   // If the language is set correctly, render the main layout and the child route.
   return (
     <>
+      <ScrollToTop />
       <NavBar lang={lang} />
       {/* Outlet renders the matched child route (e.g., HomePage or PortfolioPage) */}
       <Outlet />
@@ -98,7 +100,6 @@ function App() {
       <Routes>
         {/* Route 1: If user lands on the absolute root, redirect them. */}
         <Route path="/" element={<RootRedirect />} />
-
         {/* Route 2: The language-aware layout route. */}
         {/* All nested routes will have the /:lang/ prefix */}
         <Route path="/:lang" element={<LanguageLayout />}>
