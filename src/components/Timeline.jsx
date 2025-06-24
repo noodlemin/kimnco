@@ -27,7 +27,8 @@ const Timeline = () => {
                     year: decadeKey, // The year label will be the decade (e.g., '2020s')
                     contents: eventsInDecade.map(event => ({
                         date: event.date,
-                        title: event.title // Directly use 'title' field from the JSON data
+                        title: event.title,
+                        details: event.details // Directly use 'title' field from the JSON data
                     }))
                 });
             }
@@ -207,6 +208,9 @@ const Timeline = () => {
                                 <h2 className="text-lg md:text-2xl font-bold text-white"> {/* Font size adjusted */}
                                     {contentItem.title}
                                 </h2>
+                                <p className="text-sm md:text-sm text-gray-400"> {/* Font size adjusted */}
+                                    {contentItem.details}
+                                </p>
                             </div>
                         ))}
                     </div>
@@ -224,6 +228,9 @@ const Timeline = () => {
                             </p>
                             <h2 className="text-lg font-bold"> {/* Font size adjusted */}
                                 {contentItem.title}
+                            </h2>
+                            <h2 className="text-sm text-gray-400"> {/* Font size adjusted */}
+                                {contentItem.details}
                             </h2>
                         </div>
                     ))}

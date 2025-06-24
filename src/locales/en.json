@@ -42,28 +42,91 @@
     "mainTitle": "History",
     "decades": {
       "2020s": [
-        { "date": "2020", "title": "Yangpyeong Future Development Co., Ltd. established (Residential Building Development & Sales)" }
+        {
+          "date": "2020",
+          "title": "Yangpyeong Future Development Co., Ltd. established",
+          "details": "Residential Building Development & Sales"
+        }
       ],
       "2010s": [
-        { "date": "2019", "title": "Kim & Co. Holdings Co., Ltd. established (Real Estate Development & Sales)" },
-        { "date": "2017", "title": "Kim & Co. General Management, Landscape, I&D, South Pacific absorbed into Kim & Co. Co., Ltd." },
-        { "date": "2017", "title": "K Partners Co., Ltd. established (Real Estate Development & Sales)" },
-        { "date": "2016", "title": "Kim & Co. C&D Co., Ltd. established (Real Estate Development & Sales)" },
-        { "date": "2015", "title": "Kim & Co. Investment Development Co., Ltd. established (Housing Construction Business)" }
+        {
+          "date": "2019",
+          "title": "Kim & Co. Holdings Co., Ltd. established",
+          "details": "Real Estate Development & Sales"
+        },
+        {
+          "date": "2017",
+          "title": "Kim & Co. General Management, Landscape, I&D, South Pacific absorbed into Kim & Co. Co., Ltd."
+        },
+        {
+          "date": "2017",
+          "title": "K Partners Co., Ltd. established",
+          "details": "Real Estate Development & Sales"
+        },
+        {
+          "date": "2016",
+          "title": "Kim & Co. C&D Co., Ltd. established",
+          "details": "Real Estate Development & Sales"
+        },
+        {
+          "date": "2015",
+          "title": "Kim & Co. Investment Development Co., Ltd. established",
+          "details": "Housing Construction Business"
+        }
       ],
       "2000s": [
-        { "date": "2009", "title": "Kim & Co. Asset Co., Ltd. established (Real Estate Development)" },
-        { "date": "2009", "title": "Kim & Co. General Management Co., Ltd. established (Building & Facility Maintenance)" },
-        { "date": "2007", "title": "Kim & Co. I&D Co., Ltd. established (PF Projects, Complex Development Projects)" },
-        { "date": "2007", "title": "Kim & Co. Investment Development (South Pacific) Co., Ltd. established (Urban Redevelopment, Townhouse Projects)" },
-        { "date": "2004", "title": "Kim & Co. Landscape Co., Ltd. established (Landscape Materials Business)" },
-        { "date": "2003", "title": "Kim & Co. Co., Ltd. established (Housing Construction Business)" },
-        { "date": "2002", "title": "Youngpoong Senseville Co., Ltd. established (Housing Construction Business)" },
-        { "date": "2000", "title": "Kims Development Industry Co., Ltd. established (Housing Construction Business)" }
+        {
+          "date": "2009",
+          "title": "Kim & Co. Asset Co., Ltd. established",
+          "details": "Real Estate Development"
+        },
+        {
+          "date": "2009",
+          "title": "Kim & Co. General Management Co., Ltd. established",
+          "details": "Building & Facility Maintenance"
+        },
+        {
+          "date": "2007",
+          "title": "Kim & Co. I&D Co., Ltd. established",
+          "details": "PF Projects, Complex Development Projects"
+        },
+        {
+          "date": "2007",
+          "title": "Kim & Co. Investment Development (South Pacific) Co., Ltd. established",
+          "details": "Urban Redevelopment, Townhouse Projects"
+        },
+        {
+          "date": "2004",
+          "title": "Kim & Co. Landscape Co., Ltd. established",
+          "details": "Landscape Materials Business"
+        },
+        {
+          "date": "2003",
+          "title": "Kim & Co. Co., Ltd. established",
+          "details": "Housing Construction Business"
+        },
+        {
+          "date": "2002",
+          "title": "Youngpoong Senseville Co., Ltd. established",
+          "details": "Housing Construction Business"
+        },
+        {
+          "date": "2000",
+          "title": "Kims Development Industry Co., Ltd. established",
+          "details": "Housing Construction Business"
+        }
       ],
       "1990s": [
-        { "date": "1995", "title": "Yukam Housing Construction Co., Ltd. established (Housing Construction Business)" },
-        { "date": "1992", "title": "Woongbo Development Co., Ltd. established (Housing Construction Business)" }
+        {
+          "date": "1995",
+          "title": "Yukam Housing Construction Co., Ltd. established",
+          "details": "Housing Construction Business"
+        },
+        {
+          "date": "1992",
+          "title": "Woongbo Development Co., Ltd. established",
+          "details": "Housing Construction Business"
+        }
       ]
     }
   },
