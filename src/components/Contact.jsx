@@ -13,6 +13,7 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
+    contactNo: "",
   });
 
   const handleChange = (e) => {
@@ -33,7 +34,7 @@ const Contact = () => {
       );
 
       toast.success(t("contact.successMessage")); // Translated success message
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "", contactNo: "" });
     } catch (error) {
       console.error("EmailJS Error:", error);
       toast.error(t("contact.errorMessage")); // Translated error message
@@ -48,9 +49,17 @@ const Contact = () => {
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-50">
           {t("contact.mainTitle")}
         </h2>
-        <p className="text-center text-lg md:text-xl mb-12 max-w-2xl mx-auto text-gray-400">
+        {/* <p className="text-center text-lg md:text-xl mb-12 max-w-2xl mx-auto text-gray-400">
           {t("contact.description")}
-        </p>
+        </p> */}
+        <div className="text-center mb-12 text-gray-300"> {/* mb-12 to add space before form */}
+          <p className="text-xl font-semibold mb-2">
+            {t("footer.tel")}: <a href={`tel:${t("footer.telNo").replace(/\s/g, '').replace(/\+/g, '')}`} className="text-blue-400 hover:text-blue-300 transition-colors duration-200">{t("footer.telNo")}</a>
+          </p>
+          <p className="text-xl font-semibold">
+            {t("footer.fax")}: {t("footer.faxNo")}
+          </p>
+        </div>
 
         <div className="flex justify-center">
           <div className="bg-gray-850 rounded-lg shadow-2xl p-8 sm:p-10 lg:p-12 w-full max-w-lg border border-gray-700 hover:border-blue-700 transition-colors duration-300">
