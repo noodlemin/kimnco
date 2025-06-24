@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import { useTranslation } from 'react-i18next';
 import LogoShowcase from "./LogoShowcase";
-
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const BentoTilt = ({ children, className = "" }) => {
   const [transformStyle, setTransformStyle] = useState("");
@@ -41,9 +41,10 @@ export const BentoTilt = ({ children, className = "" }) => {
   );
 };
 
-export const BentoCard = ({ src, poster, title, description}) => {
+export const BentoCard = ({ src, poster, title, description, lang, propertyType}) => {
   const { t } = useTranslation();
   const videoRef = useRef(null);
+  const navigate = useNavigate();
 
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
@@ -77,10 +78,21 @@ export const BentoCard = ({ src, poster, title, description}) => {
     }
   };
 
+  const handleButtonClick = () => {
+    if (propertyType) {
+      navigate(`/${lang}/portfolio?type=${propertyType}`);
+    } else {
+      // Fallback if no type is provided, just go to the map
+      navigate(`/${lang}/portfolio`);
+    }
+    // Scroll to the top of the page after navigation
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="relative size-full"
-    onMouseEnter={handleMouseEnterCard} // 👈 Add this
-  onMouseLeave={handleMouseLeaveCard}>
+      onMouseEnter={handleMouseEnterCard} // 👈 Add this
+      onMouseLeave={handleMouseLeaveCard}>
       <video
         ref={videoRef}
         src={src}
@@ -101,11 +113,12 @@ export const BentoCard = ({ src, poster, title, description}) => {
         </div>
 
         <div
+          onClick={handleButtonClick}
           ref={hoverButtonRef}
           onMouseMove={handleMouseMove}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end font-general"
+          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end font-general md:text-xl"
         >
           {/* Radial gradient hover effect */}
           <div
@@ -127,6 +140,8 @@ export const BentoCard = ({ src, poster, title, description}) => {
 
 const Features = () => {
   const { t } = useTranslation();
+  const { lang } = useParams();
+
   return(
     <section className="bg-black pb-24 md:pb-48">
       <div className="container mx-auto px-4 md:px-10">
@@ -141,6 +156,8 @@ const Features = () => {
 
         <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
           <BentoCard
+            lang={lang}
+            propertyType="living"
             src="videos/feature-1.mp4"
             poster="img/poster1.png"
             title={
@@ -156,6 +173,8 @@ const Features = () => {
         <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
           <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
             <BentoCard
+              lang={lang}
+              propertyType="commercial"
               src="videos/feature-2.mp4"
               poster="img/poster2.png"
               title={
@@ -163,7 +182,7 @@ const Features = () => {
                   {t('features.feature2-title')}
                 </>
               }
-              // description={t('features.feature2-text')}
+
             />
           </BentoTilt>
 

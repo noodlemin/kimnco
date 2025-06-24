@@ -1,13 +1,10 @@
 // NavBar.jsx
-import clsx from "clsx";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from "./LanguageToggle";
 import { Link } from 'react-router-dom';
-// const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
-
 
 const NavBar = ({lang}) => {
   const { t } = useTranslation();
@@ -49,9 +46,9 @@ const NavBar = ({lang}) => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <Link to={`/${lang}`} className="flex items-center">
             <img src="/img/logo.png" alt="logo" className="w-10" />
-          </a>
+          </Link>
 
           {/* Right side content for mobile and desktop */}
           <div className="flex h-full items-center">

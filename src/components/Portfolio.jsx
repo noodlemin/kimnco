@@ -1,10 +1,11 @@
 import KakaoMap from "./KakaoMap";
-// import { Map } from "react-kakao-maps-sdk";
+import { useTranslation } from 'react-i18next';
 
 const Portfolio = () => {
+  const { t } = useTranslation();
   return (
-    <div className="mt-40">
-      <h2>My Kakao Map</h2>
+    <div className="bg-black pt-20 text-white">
+      <h2>{t('portfolio.title')}</h2>
       <KakaoMap />
     </div>
   );

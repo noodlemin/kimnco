@@ -13,14 +13,14 @@ i18n
       ko: { translation: ko },
       en: { translation: en },
     },
-    lng: 'ko',
-    fallbackLng: 'en', // use English if detected language is not available
+    // lng: 'ko',
+    fallbackLng: 'ko', // use English if detected language is not available
     debug: true, // set to false in production
     interpolation: {
       escapeValue: false, // react handles XSS protection
     },
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+      order: ['path', 'localStorage', 'navigator', 'htmlTag',  'subdomain'],
       caches: ['localStorage'],
     },
   });

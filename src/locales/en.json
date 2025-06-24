@@ -32,6 +32,11 @@
     "feature4-text": "We help you uncover future-valuable land and reap the abundant fruits of success.",
     "logo": "Partners"
   },
+
+  "portfolio":{
+    "living": "Living",
+    "commercial": "Commercial"
+  },
   
   "timeline": {
     "mainTitle": "History",
@@ -64,6 +69,11 @@
   },
 
   "footer": {
+    "links": [
+      {"text": "Contact", "id": "contact" },
+      {"text": "Privacy Policy", "id": "privacyPolicy" },
+      {"text": "No Email Collection", "id": "noEmail" }
+    ],
     "companyNameShort": "Kim & Co Inc.",
     "contact": "Contact",
     "privacyPolicy": "Privacy Policy",

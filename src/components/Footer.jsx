@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
+import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({lang}) => {
   const { t } = useTranslation();
+  const footerItems = t('footer.links', { returnObjects: true });
 
   return (
     // Main footer container
@@ -27,12 +29,12 @@ const Footer = () => {
             <p className="text-xs md:text-sm mb-1 rounded-md">
               <span className="font-semibold">{t('footer.owner')}</span> | {t('footer.ownerName')}
             </p>
-            <p className="text-xs md:text-sm mb-1 rounded-md">
+            {/* <p className="text-xs md:text-sm mb-1 rounded-md">
               <span className="font-semibold">{t('footer.tel')}</span> | {t('footer.telNo')}
             </p>
             <p className="text-xs md:text-sm mb-1 rounded-md">
               <span className="font-semibold">FAX</span> | {t('footer.faxNo')}
-            </p>
+            </p> */}
             <p className="text-xs md:text-sm mb-1 rounded-md">
               {t('footer.addressDetail')}
             </p>
@@ -43,9 +45,20 @@ const Footer = () => {
           {/* Text is centered on mobile, right-aligned on desktop. */}
           <div className="w-full md:w-1/2 text-center md:text-right">
             <ul className="space-y-2">
-              <li><a href="" className="hover:text-white transition-colors duration-200 text-sm md:text-base rounded-md">{t('footer.contact')}</a></li>
+              {footerItems.map((item, index) => (
+                <li key={item.id}>
+                  <Link
+                    to={`/${lang}/${item.id}`} // full hash route
+                    className="hover:text-white transition-colors duration-200 text-sm md:text-base rounded-md"
+                  >
+
+                    {item.text}
+                  </Link>
+                </li>
+              ))}
+              {/* <li><a href="contact" className="hover:text-white transition-colors duration-200 text-sm md:text-base rounded-md">{t('footer.contact')}</a></li>
               <li><a href="privacy" className="hover:text-white transition-colors duration-200 text-sm md:text-base rounded-md">{t('footer.privacyPolicy')}</a></li>
-              <li><a href="noemail" className="hover:text-white transition-colors duration-200 text-sm md:text-base rounded-md">{t('footer.noEmail')}</a></li>
+              <li><a href="noemail" className="hover:text-white transition-colors duration-200 text-sm md:text-base rounded-md">{t('footer.noEmail')}</a></li> */}
               
             </ul>
           </div>

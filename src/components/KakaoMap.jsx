@@ -5,6 +5,8 @@ import {
   MapTypeId,
   CustomOverlayMap,
 } from "react-kakao-maps-sdk";
+import { useSearchParams } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const properties = [
   { id: 1, type: "living", lat: 37.5665, lng: 126.978 },
@@ -14,7 +16,13 @@ const properties = [
 ];
 
 const KakaoMap = () => {
-  const [filters, setFilters] = useState(["living", "commercial"]);
+  const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
+  const initialType = searchParams.get("type");
+  const [filters, setFilters] = useState(() => 
+    initialType ? [initialType] : ["living", "commercial"]
+  );
+
 
   const toggleFilter = (type) => {
     setFilters((prev) =>
@@ -37,7 +45,7 @@ const KakaoMap = () => {
             filters.includes("living") ? "bg-blue-600 text-white" : "bg-gray-200"
           }`}
         >
-          Living
+          {t("portfolio.living")}
         </button>
         <button
           onClick={() => toggleFilter("commercial")}
@@ -45,15 +53,15 @@ const KakaoMap = () => {
             filters.includes("commercial") ? "bg-red-600 text-white" : "bg-gray-200"
           }`}
         >
-          Commercial
+          {t("portfolio.commercial")}
         </button>
       </div>
 
       {/* Map with Markers */}
       <Map
         center={{ lat: 37.5665, lng: 126.978 }}
-        style={{ width: "100%", height: "500px", borderRadius: "8px" }}
-        level={3}
+        style={{ width: "100%", height: "500px", borderRadius: "8px"}}
+        level={13}
       >
         {filteredMarkers.map((property) => (
           <MapMarker

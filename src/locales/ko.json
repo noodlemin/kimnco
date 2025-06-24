@@ -60,7 +60,18 @@
     }
   },
 
+  "portfolio":{
+    "title": "포트폴리오",
+    "living": "주택",
+    "commercial": "상업"
+  },
+
   "footer": {
+    "links": [
+      {"text": "문의", "id": "contact" },
+      {"text": "개인정보 처리방침", "id": "privacyPolicy" },
+      {"text": "이메일 무단수집거부", "id": "noEmail" }
+    ],
     "companyNameShort": "㈜킴앤코",
     "contact": "문의",
     "privacyPolicy": "개인정보 처리방침",
