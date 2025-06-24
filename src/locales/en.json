@@ -146,6 +146,20 @@
     "faxNo": "+82-31-713-1121",
     "addressDetail": "Kim&Co Cityheim 2 #401, 46 Daehak-ro, Yeongtong-gu, Suwon-si, Gyeonggi-do",
     "businessNumber": "Business registration number"
+  },
 
+  "contact": {
+    "mainTitle": "Get in Touch",
+    "description": "For professional inquiries or collaboration, please feel free to reach out.",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "Your full name",
+    "emailLabel": "Your Email",
+    "emailPlaceholder": "Your professional email address",
+    "messageLabel": "Your Message",
+    "messagePlaceholder": "Briefly describe your inquiry",
+    "sending": "Sending...",
+    "sendMessage": "Send Message",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "Failed to send message. Please try again later."
   }
 }
