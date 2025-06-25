@@ -13,7 +13,7 @@ const About = () => {
   return (
     <div id="about" className="w-screen">
       {/* Hero Image Section */}
-      <div className="relative h-[50vh] w-screen">
+      <div className="relative h-[60vh] w-screen">
         <img
           src="img/about.png"
           alt="About Background"
