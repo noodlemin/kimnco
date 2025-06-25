@@ -1,97 +1,70 @@
-// LanguageToggle.jsx (Revised)
+// LanguageToggle.jsx (Simplified and Improved Aesthetics)
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Remove useParams here
+import { useNavigate } from 'react-router-dom';
 
 const LanguageToggle = ({ className }) => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
 
-  // isKoreanActive should ONLY depend on i18n.language
-  // The 'i18n.language' itself will be updated by LanguageValidatorAndContent
-  // when the URL changes.
   const isKoreanActive = i18n.language.startsWith('ko');
 
-  // State to track if it's a small screen (mobile)
-  const [isMobile, setIsMobile] = useState(false);
+  const handleLanguageChange = (lang) => {
+    if (i18n.language.startsWith(lang)) return;
 
-  // Function to handle language toggle
-  const handleToggle = () => {
-    const targetLang = isKoreanActive ? 'en' : 'ko';
-
-    // Change i18n language first
-    i18n.changeLanguage(targetLang);
-
-    // Navigate to the new URL with the chosen language
-    // This will trigger the LanguageValidatorAndContent to update i18n.language
-    // if it hasn't already caught up, and also update the URL.
-    navigate(`/${targetLang}`);
+    i18n.changeLanguage(lang);
+    navigate(`/${lang}`);
   };
 
-  // Effect to check screen size on mount and resize (no changes here, it's correct)
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 640); // Tailwind's 'sm' breakpoint is 640px
-    };
-
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
-
-  // Define translation values based on screen size for the slider's position.
-  const koreanPosition = isMobile ? 'translateX(15%)' : 'translateX(5%)';
-  const englishPosition = isMobile ? 'translateX(145%)' : 'translateX(115%)';
+  // --- Style classes for the buttons ---
+  // Base styling for both buttons for consistency
+  const buttonBaseClasses = "z-10 flex-1 rounded-lg px-5 py-2.5 text-center text-sm font-bold uppercase transition-all duration-300 ease-in-out";
+  
+  // Styling for the focused state, consistent for both buttons
+  const focusClasses = "focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900";
 
   return (
+    // The main container. We use a softer rounded shape and subtle background.
     <div
-      onClick={handleToggle}
       className={clsx(
-        "relative flex h-12 w-28 cursor-pointer items-center rounded-full p-1",
-        "sm:h-10 sm:w-24 focus-within:ring-2 focus-within:ring-yellow-400 focus-within:ring-offset-2 focus-within:ring-offset-gray-900",
+        "flex items-center space-x-1 rounded-xl p-1",
+        "bg-gray-700/50", // A semi-transparent background to blend better
         className
       )}
-      role="switch"
-      aria-checked={isKoreanActive}
-      aria-label="Toggle language between Korean and English"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          handleToggle();
-        }
-      }}
+      role="group"
+      aria-label="Language selection"
     >
-      {/* Sliding indicator */}
-      <div
+      {/* Korean Language Button */}
+      <button
+        onClick={() => handleLanguageChange('ko')}
+        aria-pressed={isKoreanActive}
         className={clsx(
-          "absolute h-8 w-10 rounded-full bg-yellow-500 shadow-md transition-transform duration-300 ease-in-out",
-          "sm:h-8 sm:w-10"
-        )}
-        style={{
-          // Apply the correct transform based on the active language
-          transform: isKoreanActive ? koreanPosition : englishPosition,
-        }}
-      />
-
-      {/* Text Labels */}
-      <span
-        className={clsx(
-          "z-10 flex-1 text-center font-general text-xs uppercase transition-colors duration-300",
-          isKoreanActive ? 'text-gray-800' : 'text-white'
+          buttonBaseClasses,
+          focusClasses,
+          {
+            'bg-gray-200 text-gray-900 shadow-sm': isKoreanActive, // Active state: light, clear, with subtle shadow
+            'bg-transparent text-gray-300 hover:bg-gray-600/70': !isKoreanActive, // Inactive state: transparent, subtle hover
+          }
         )}
       >
         한
-      </span>
-      <span
+      </button>
+
+      {/* English Language Button */}
+      <button
+        onClick={() => handleLanguageChange('en')}
+        aria-pressed={!isKoreanActive}
         className={clsx(
-          "z-10 flex-1 text-center font-general text-xs uppercase transition-colors duration-300",
-          !isKoreanActive ? 'text-gray-800' : 'text-white'
+          buttonBaseClasses,
+          focusClasses,
+          {
+            'bg-gray-200 text-gray-900 shadow-sm': !isKoreanActive, // Active state
+            'bg-transparent text-gray-300 hover:bg-gray-600/70': isKoreanActive, // Inactive state
+          }
         )}
       >
         EN
-      </span>
+      </button>
     </div>
   );
 };
