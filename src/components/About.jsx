@@ -1,11 +1,6 @@
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
 import AnimatedTitle from "./AnimatedTitle";
 import { useTranslation } from "react-i18next";
 import Timeline from "./Timeline.jsx";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const { t } = useTranslation();
