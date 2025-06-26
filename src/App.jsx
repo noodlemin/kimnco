@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import Legal from './components/Legal';
 
 
 
@@ -84,19 +85,10 @@ function HomePage() {
   );
 }
 
-// A separate page component for the portfolio
-function PortfolioPage() {
-  return <Portfolio />;
-}
-
-function ContactPage() {
-  return <Contact />;
-}
-
 // --- 4. Main App Component (Simplified Routing Structure) ---
 function App() {
   return (
-    <main className="relative min-h-screen w-screen overflow-x-hidden">
+    <main className="relative min-h-screen w-full overflow-x-hidden">
       <Routes>
         {/* Route 1: If user lands on the absolute root, redirect them. */}
         <Route path="/" element={<RootRedirect />} />
@@ -105,9 +97,10 @@ function App() {
         <Route path="/:lang" element={<LanguageLayout />}>
           {/* Child routes rendered by the Outlet in LanguageLayout */}
           <Route index element={<HomePage />} />
-          <Route path="portfolio" element={<PortfolioPage />} />
-          <Route path="contact" element={<ContactPage />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="contact" element={<Contact />} />
           {/* Add more pages here, e.g., <Route path="contact" element={<Contact />} /> */}
+          <Route path="legal" element={<Legal />} />
         </Route>
         
         {/* Optional: A catch-all route for any other invalid path */}

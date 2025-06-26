@@ -188,6 +188,8 @@ const Features = () => {
 
           <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:ms-0">
             <BentoCard
+              lang={lang}
+              propertyType="resorts"
               src="videos/feature-3.mp4"
               poster="img/poster3.png"
               title={

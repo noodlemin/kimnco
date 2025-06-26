@@ -6,7 +6,7 @@ const About = () => {
   const { t } = useTranslation();
 
   return (
-    <div id="about" className="w-screen">
+    <div id="about" className="w-full">
       {/* Hero Image Section */}
       <div className="relative h-[60vh] w-screen">
         <img
