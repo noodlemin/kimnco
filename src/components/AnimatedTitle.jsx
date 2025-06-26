@@ -9,14 +9,19 @@ const AnimatedTitle = ({ title, containerClass }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // We removed ScrollTrigger.normalizeScroll() to prioritize animation smoothness.
-    // The will-change CSS property (added below) is a more direct performance fix.
+    // --- TARGETED FIX FOR MOBILE SCROLL JUMP ---
+    // This tells ScrollTrigger to NOT refresh its calculations when the viewport
+    // height changes on touch devices. This is the most direct way to prevent
+    // the layout jump caused by the browser's UI appearing/disappearing.
+    // This configuration should ideally be set once in your main App component.
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
 
     const ctx = gsap.context(() => {
       const titleAnimation = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top bottom", // Changed to trigger a bit earlier for a smoother feel
+          start: "top bottom",
           end: "center bottom",
           toggleActions: "play none none reverse",
         },
@@ -27,8 +32,8 @@ const AnimatedTitle = ({ title, containerClass }) => {
         {
           opacity: 1,
           transform: "translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)",
-          ease: "power2.out", // Changed to a slightly smoother ease
-          stagger: 0.03, // Slightly increased stagger for clarity
+          ease: "power2.out",
+          stagger: 0.03,
         },
         0
       );
@@ -39,9 +44,7 @@ const AnimatedTitle = ({ title, containerClass }) => {
 
   return (
     <>
-      {/* --- PERFORMANCE OPTIMIZATION --- */}
-      {/* This style tag tells the browser to prepare for animation on these elements,
-          which often enables GPU acceleration for much smoother results. */}
+      {/* This performance optimization is still helpful for smoothness */}
       <style>{`
         .animated-word {
           will-change: transform, opacity;
