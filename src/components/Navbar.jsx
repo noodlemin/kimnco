@@ -1,7 +1,7 @@
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation
 import clsx from 'clsx';
 import LanguageToggle from "./LanguageToggle";
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
@@ -15,6 +15,7 @@ const NavBar = ({ lang }) => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
+  const location = useLocation(); // Get the current location object
 
   // --- Effect to manage navbar visibility and style on scroll ---
   useEffect(() => {
@@ -56,6 +57,19 @@ const NavBar = ({ lang }) => {
     };
   }, [isMobileMenuOpen]);
 
+  // --- Handle logo click to scroll to top ---
+  const handleLogoClick = (e) => {
+    // Check if we are already on the home page
+    if (location.pathname === `/${lang}` || location.pathname === `/${lang}/`) {
+      e.preventDefault(); // Prevent the Link's default navigation
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+    // If not on the home page, the Link will navigate as usual
+  };
+
   return (
     <>
       <div
@@ -64,18 +78,20 @@ const NavBar = ({ lang }) => {
       >
         <header
           className={clsx(
-            'relative w-full h-full border-b transition-all duration-300', // Border is always present
+            'relative w-full h-full border-b transition-all duration-300',
             {
-              // Apply styled background, shadow, and border color when scrolled or mobile menu is open
               'bg-black/30 backdrop-blur-lg shadow-lg border-white/10': !isAtTop || isMobileMenuOpen,
-              // Make border transparent when at the top and mobile menu is closed
               'border-transparent': isAtTop && !isMobileMenuOpen,
             }
           )}
         >
           <nav className="flex items-center justify-between w-full h-full px-4 sm:px-6">
             {/* Logo */}
-            <Link to={`/${lang}`} className="flex items-center shrink-0">
+            <Link 
+              to={`/${lang}`} 
+              className="flex items-center shrink-0" 
+              onClick={handleLogoClick} // Add the click handler here
+            >
               <img src="/img/logo.png" alt="logo" className="w-10" />
             </Link>
 
@@ -120,7 +136,7 @@ const NavBar = ({ lang }) => {
               <Link
                 key={item.id}
                 to={`/${lang}/${item.id}`}
-                onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="text-2xl font-semibold text-gray-200 transition-colors hover:text-white"
               >
                 {item.text}
