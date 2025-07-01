@@ -19,17 +19,17 @@ const imageCounters = {
 
 // All data related to properties is now in one place.
 export const properties = [
-  { id: 1, type: "living", title: "e편한세상 시티 부평역", lat: 37.490, lng: 126.719, url: "https://kko.kakao.com/CeQRigVGMp" },
-  { id: 2, type: "living", title: "천안행정타운 센트럴 두산위브", lat: 36.779, lng: 127.153, url: "https://kko.kakao.com/B6lRUU4-Ab" },
-  { id: 3, type: "living", title: "용화마을 신도브래뉴 아파트", lat: 36.7726, lng: 127.01252, url: "https://kko.kakao.com/TRI8tqGWE5" },
-  { id: 4, type: "living", title: "청당 벽산 블루밍", lat: 36.779, lng: 127.156, url: "https://kko.kakao.com/4O_mzcUIC-" },
-  { id: 5, type: "living", title: "일산 가좌 벽산 블루밍", lat: 37.6896, lng: 126.72289, url: "https://kko.kakao.com/koJs07JZlC" },
-  { id: 6, type: "living", title: "일산 킨텍스 자이 아파트", lat: 37.670, lng: 126.7287, url: "https://kko.kakao.com/OpxhRcTqPv" },
-  { id: 7, type: "living", title: "신반포 청구 아파트", lat: 37.5142, lng: 127.00845, url: "https://kko.kakao.com/s5jkSlaybn" },
-  { id: 8, type: "resorts", title: "고성군 뽀로로 테마파크 호텔 (진행중)", lat: 38.3336, lng: 128.5248, url: "https://kko.kakao.com/g3aTtGsx3B"},
-  { id: 9, type: "commercial", title: "광교 신대역 킴앤코 시티하임 I", lat: 37.2981441104908, lng: 127.069888507164, url: "https://kko.kakao.com/IpduPlToxQ"},
-  { id: 10, type: "commercial", title: "광교 경기대역 킴앤코 시티하임 II", lat: 37.2999363591715, lng: 127.044308069371, url: "https://kko.kakao.com/_c4yJyKjqj"},
-  { id: 11, type: "commercial", title: "광교 K-tower", lat: 37.2992306061982, lng: 127.042759297239, url: "https://kko.kakao.com/agSHkM0QSx"},
+  { id: 1, type: "living", title: "e편한세상 시티 부평역", lat: 37.490, lng: 126.719, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=1873580302&urlLevel=1&urlX=437894&urlY=1108633" },
+  { id: 2, type: "living", title: "천안행정타운 센트럴 두산위브", lat: 36.779, lng: 127.153, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=412129454&urlLevel=5&urlX=535215&urlY=912090" },
+  { id: 3, type: "living", title: "용화마을 신도브래뉴 아파트", lat: 36.7726, lng: 127.01252, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=11113991&urlLevel=3&urlX=502831&urlY=909448" },
+  { id: 4, type: "living", title: "청당 벽산 블루밍", lat: 36.779, lng: 127.156, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=11231379&urlLevel=4&urlX=535002&urlY=911647" },
+  { id: 5, type: "living", title: "일산 가좌 벽산 블루밍", lat: 37.6896, lng: 126.72289, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=11072400&urlLevel=2&urlX=438856&urlY=1163951" },
+  { id: 6, type: "living", title: "일산 킨텍스 자이 아파트", lat: 37.670, lng: 126.7287, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=11540449&urlLevel=1&urlX=440226&urlY=1158466" },
+  { id: 7, type: "living", title: "신반포 청구 아파트", lat: 37.5142, lng: 127.00845, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=11159136&urlLevel=2&urlX=501866&urlY=1115183" },
+  { id: 8, type: "resorts", title: "고성군 뽀로로 테마파크 호텔 (진행중)", lat: 38.3336, lng: 128.5248, url: "https://map.kakao.com/?map_type=TYPE_MAP&q=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%EA%B3%A0%EC%84%B1%EA%B5%B0+%EC%A3%BD%EC%99%95%EB%A9%B4+%EC%98%A4%ED%98%B8%EB%A6%AC+245-23&urlLevel=3&urlX=833416&urlY=1345340"},
+  { id: 9, type: "commercial", title: "광교 신대역 킴앤코 시티하임 I", lat: 37.2981441104908, lng: 127.069888507164, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=18995819&urlLevel=1&urlX=515491&urlY=1055256"},
+  { id: 10, type: "commercial", title: "광교 경기대역 킴앤코 시티하임 II", lat: 37.2999363591715, lng: 127.044308069371, url: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=26589235&urlLevel=1&urlX=509863&urlY=1055760"},
+  { id: 11, type: "commercial", title: "광교 K-tower", lat: 37.2992306061982, lng: 127.042759297239, url: "https://map.kakao.com/?map_type=TYPE_MAP&map_attribute=ROADVIEW&q=%EA%B2%BD%EA%B8%B0+%EC%88%98%EC%9B%90%EC%8B%9C+%EC%98%81%ED%86%B5%EA%B5%AC+%EB%8C%80%ED%95%993%EB%A1%9C+1&urlLevel=2&urlX=509564&urlY=1055558"},
 ].map(property => {
   // Increment the counter for the current property type
   imageCounters[property.type]++;
