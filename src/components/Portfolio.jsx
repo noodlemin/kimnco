@@ -18,7 +18,9 @@ const InfoWindow = ({ property, onClose }) => {
   if (!property) return null;
 
   return (
-    <div className="absolute top-4 left-4 right-4 lg:left-4 lg:right-auto lg:w-80 z-20 animate-fade-in">
+    // This div is corrected. It no longer stretches to the right edge on mobile.
+    // It now has a calculated width with a max-width to prevent overlap.
+    <div className="absolute top-4 left-4 w-[calc(100%-2rem)] max-w-sm lg:left-4 lg:w-80 z-20 animate-fade-in">
       <div className="relative flex flex-col bg-gray-900 text-white rounded-lg shadow-2xl border border-gray-700 overflow-hidden">
         <button 
           onClick={onClose} 
@@ -84,7 +86,8 @@ const Portfolio = () => {
   const handleCloseOverlay = () => {
     setSelectedProperty(null);
     if (map && overviewBounds) {
-      map.setBounds(overviewBounds);
+      // We use setBounds with padding here as well to ensure a consistent view
+      map.setBounds(overviewBounds, 100, 100, 100, 100);
     }
   };
 
@@ -107,7 +110,7 @@ const Portfolio = () => {
       bounds.extend(new window.kakao.maps.LatLng(marker.lat, marker.lng));
     });
     
-    map.setBounds(bounds);
+    map.setBounds(bounds, 100, 100, 100, 100);
     // Always save the calculated bounds so we can return to this view.
     setOverviewBounds(bounds);
 
@@ -121,8 +124,10 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-16 px-4 sm:px-6 lg:px-8 bg-black text-gray-200 min-h-screen pt-24 md:pt-24">
-      <div className="container mx-auto">
+    // The main section is now a flex container to center its content.
+    <section id="portfolio" className="flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 bg-black text-gray-200 min-h-screen pt-24 md:pt-24">
+      {/* The container now has a max-width and full width to work within the flex parent */}
+      <div className="container w-full max-w-7xl mx-auto">
         <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold special-font text-gray-100">
                 {t('portfolio.title', 'Our Portfolio')}
@@ -148,28 +153,26 @@ const Portfolio = () => {
         </div>
 
         <div className="relative rounded-xl overflow-hidden border border-gray-700 shadow-2xl">
-        <Map
-  center={{ lat: 37.2, lng: 127.0 }}
-  style={{ width: "100%", height: "65vh" }}
-  level={12}
-  className="bg-gray-900"
-  onCreate={setMap}
->
-  {/* Change 'properties' to 'filteredMarkers' here */}
-  {filteredMarkers.map((property) => (
-    <MapMarker
-      key={property.id}
-      position={{ lat: property.lat, lng: property.lng }}
-      onClick={() => handleMarkerClick(property)}
-      image={{
-        src: markerSources[property.type],
-        size: { width: 42, height: 52 },
-      }}
-      title={property.title}
-      // The 'visible' prop is now removed.
-    />
-  ))}
-</Map>
+          <Map
+            center={{ lat: 37.2, lng: 127.0 }}
+            style={{ width: "100%", height: "65vh" }}
+            level={12}
+            className="bg-gray-900"
+            onCreate={setMap}
+          >
+            {filteredMarkers.map((property) => (
+              <MapMarker
+                key={property.id}
+                position={{ lat: property.lat, lng: property.lng }}
+                onClick={() => handleMarkerClick(property)}
+                image={{
+                  src: markerSources[property.type],
+                  size: { width: 42, height: 52 },
+                }}
+                title={property.title}
+              />
+            ))}
+          </Map>
           
           <InfoWindow property={selectedProperty} onClose={handleCloseOverlay} />
         </div>
