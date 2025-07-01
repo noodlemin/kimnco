@@ -3,17 +3,16 @@ import {
   Map,
   MapMarker,
 } from "react-kakao-maps-sdk";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { MdClose } from "react-icons/md";
 import { FiExternalLink } from "react-icons/fi";
 
-// --- IMPORT DATA ---
-// All data is now imported from the reusable data file.
+// We assume this data is in a separate file like `src/data/properties.js`
 import { properties, markerSources } from "../data/properties";
 
-// A new, separate component for the info window
+// A separate component for the info window for cleaner code
 const InfoWindow = ({ property, onClose }) => {
   const { t } = useTranslation();
   if (!property) return null;
@@ -74,14 +73,8 @@ const Portfolio = () => {
     setSelectedProperty(property);
     if (map) {
       const newCenter = new window.kakao.maps.LatLng(property.lat, property.lng);
-      
-      // FIX: Set the zoom level instantly without animation to prevent a race condition.
-      // The panTo method below will handle the smooth movement.
       map.setLevel(5); 
-      
       map.panTo(newCenter);
-
-      // Mobile fix to pan the map up so the marker isn't covered by the info window.
       if (window.innerWidth < 1024) {
         map.panBy(0, -150);
       }
@@ -92,35 +85,32 @@ const Portfolio = () => {
     setSelectedProperty(null);
     if (map && overviewBounds) {
       map.setBounds(overviewBounds);
-    } else if (map && filteredMarkers.length === 1) {
-      const marker = filteredMarkers[0];
-      const newCenter = new window.kakao.maps.LatLng(marker.lat, marker.lng);
-      map.setLevel(8, { animate: true });
-      map.panTo(newCenter);
     }
   };
 
   const filteredMarkers = properties.filter((p) => filters.includes(p.type));
   
+  // This effect now correctly handles both the initial load and subsequent filter changes.
   useEffect(() => {
-    if (!map || filteredMarkers.length === 0) return;
+    if (!map) return;
     
+    // Always close any open detail view when the filters change
     setSelectedProperty(null);
 
-    if (filteredMarkers.length === 1) {
-      const marker = filteredMarkers[0];
-      const newCenter = new window.kakao.maps.LatLng(marker.lat, marker.lng);
-      map.setLevel(8, { animate: true });
-      map.panTo(newCenter);
-      setOverviewBounds(null);
-    } else {
-      const bounds = new window.kakao.maps.LatLngBounds();
-      filteredMarkers.forEach(marker => {
-        bounds.extend(new window.kakao.maps.LatLng(marker.lat, marker.lng));
-      });
-      map.setBounds(bounds);
-      setOverviewBounds(bounds);
+    if (filteredMarkers.length === 0) {
+        // If no filters are active, do nothing, just keep the last view.
+        return;
     }
+
+    const bounds = new window.kakao.maps.LatLngBounds();
+    filteredMarkers.forEach(marker => {
+      bounds.extend(new window.kakao.maps.LatLng(marker.lat, marker.lng));
+    });
+    
+    map.setBounds(bounds);
+    // Always save the calculated bounds so we can return to this view.
+    setOverviewBounds(bounds);
+
   }, [filters, map]);
 
   const filterButtons = [
@@ -131,7 +121,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-16 px-4 sm:px-6 lg:px-8 bg-black text-gray-200 min-h-screen pt-24 md:pt-32">
+    <section id="portfolio" className="py-16 px-4 sm:px-6 lg:px-8 bg-black text-gray-200 min-h-screen pt-24 md:pt-24">
       <div className="container mx-auto">
         <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold special-font text-gray-100">
@@ -158,26 +148,28 @@ const Portfolio = () => {
         </div>
 
         <div className="relative rounded-xl overflow-hidden border border-gray-700 shadow-2xl">
-          <Map
-            center={{ lat: 37.52, lng: 126.98 }}
-            style={{ width: "100%", height: "70vh" }}
-            level={9}
-            className="bg-gray-900"
-            onCreate={setMap}
-          >
-            {filteredMarkers.map((property) => (
-              <MapMarker
-                key={property.id}
-                position={{ lat: property.lat, lng: property.lng }}
-                onClick={() => handleMarkerClick(property)}
-                image={{
-                  src: markerSources[property.type],
-                  size: { width: 42, height: 52 },
-                }}
-                title={property.title}
-              />
-            ))}
-          </Map>
+        <Map
+  center={{ lat: 37.2, lng: 127.0 }}
+  style={{ width: "100%", height: "65vh" }}
+  level={12}
+  className="bg-gray-900"
+  onCreate={setMap}
+>
+  {/* Change 'properties' to 'filteredMarkers' here */}
+  {filteredMarkers.map((property) => (
+    <MapMarker
+      key={property.id}
+      position={{ lat: property.lat, lng: property.lng }}
+      onClick={() => handleMarkerClick(property)}
+      image={{
+        src: markerSources[property.type],
+        size: { width: 42, height: 52 },
+      }}
+      title={property.title}
+      // The 'visible' prop is now removed.
+    />
+  ))}
+</Map>
           
           <InfoWindow property={selectedProperty} onClose={handleCloseOverlay} />
         </div>

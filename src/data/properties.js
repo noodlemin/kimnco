@@ -19,13 +19,17 @@ const imageCounters = {
 
 // All data related to properties is now in one place.
 export const properties = [
-  { id: 1, type: "living", title: "Luxury Residence Gangnam", lat: 37.501, lng: 127.040, url: "#" },
-  { id: 2, type: "commercial", title: "Starfield COEX Mall", lat: 37.512, lng: 127.059, url: "#" },
-  { id: 3, type: "living", title: "Seoul Forest Apartments", lat: 37.545, lng: 127.042, url: "#" },
-  { id: 4, type: "commercial", title: "Gwanghwamun Business Tower", lat: 37.575, lng: 126.978, url: "#" },
-  { id: 5, type: "resorts", title: "Grand Hyatt Seoul", lat: 37.540, lng: 126.999, url: "#" },
-  { id: 6, type: "living", title: "Mapo Riverside Wellbeing", lat: 37.540, lng: 126.946, url: "#" },
-  { id: 7, type: "resorts", title: "Paradise City", lat: 37.437, lng: 126.449, url: "#" },
+  { id: 1, type: "living", title: "e편한세상 시티 부평역", lat: 37.490, lng: 126.719, url: "https://kko.kakao.com/CeQRigVGMp" },
+  { id: 2, type: "living", title: "천안행정타운 센트럴 두산위브", lat: 36.779, lng: 127.153, url: "https://kko.kakao.com/B6lRUU4-Ab" },
+  { id: 3, type: "living", title: "용화마을 신도브래뉴 아파트", lat: 36.7726, lng: 127.01252, url: "https://kko.kakao.com/TRI8tqGWE5" },
+  { id: 4, type: "living", title: "청당 벽산 블루밍", lat: 36.779, lng: 127.156, url: "https://kko.kakao.com/4O_mzcUIC-" },
+  { id: 5, type: "living", title: "일산 가좌 벽산 블루밍", lat: 37.6896, lng: 126.72289, url: "https://kko.kakao.com/koJs07JZlC" },
+  { id: 6, type: "living", title: "일산 킨텍스 자이 아파트", lat: 37.670, lng: 126.7287, url: "https://kko.kakao.com/OpxhRcTqPv" },
+  { id: 7, type: "living", title: "신반포 청구 아파트", lat: 37.5142, lng: 127.00845, url: "https://kko.kakao.com/s5jkSlaybn" },
+  { id: 8, type: "resorts", title: "고성군 뽀로로 테마파크 호텔 (진행중)", lat: 38.3336, lng: 128.5248, url: "https://kko.kakao.com/g3aTtGsx3B"},
+  { id: 9, type: "commercial", title: "광교 신대역 킴앤코 시티하임 I", lat: 37.2981441104908, lng: 127.069888507164, url: "https://kko.kakao.com/IpduPlToxQ"},
+  { id: 10, type: "commercial", title: "광교 경기대역 킴앤코 시티하임 II", lat: 37.2999363591715, lng: 127.044308069371, url: "https://kko.kakao.com/_c4yJyKjqj"},
+  { id: 11, type: "commercial", title: "광교 K-tower", lat: 37.2992306061982, lng: 127.042759297239, url: "https://kko.kakao.com/agSHkM0QSx"},
 ].map(property => {
   // Increment the counter for the current property type
   imageCounters[property.type]++;
