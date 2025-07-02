@@ -82,16 +82,14 @@ export const BentoCard = ({ src, poster, title, description, lang, propertyType}
     if (propertyType) {
       navigate(`/${lang}/portfolio?type=${propertyType}`);
     } else {
-      // Fallback if no type is provided, just go to the map
       navigate(`/${lang}/portfolio`);
     }
-    // Scroll to the top of the page after navigation
     window.scrollTo(0, 0);
   };
 
   return (
     <div className="relative size-full"
-      onMouseEnter={handleMouseEnterCard} // 👈 Add this
+      onMouseEnter={handleMouseEnterCard}
       onMouseLeave={handleMouseLeaveCard}>
       <video
         ref={videoRef}
@@ -99,7 +97,6 @@ export const BentoCard = ({ src, poster, title, description, lang, propertyType}
         poster={poster}
         loop
         muted
-        // autoPlay
         playsInline
         preload="auto"
         className="absolute left-0 top-0 size-full object-cover object-center"
@@ -118,9 +115,9 @@ export const BentoCard = ({ src, poster, title, description, lang, propertyType}
           onMouseMove={handleMouseMove}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end font-general md:text-xl"
+          // The fix is here: md:text-xl was changed to md:text-base
+          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end font-robert-regular font-black md:text-base"
         >
-          {/* Radial gradient hover effect */}
           <div
             className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
             style={{
@@ -149,9 +146,6 @@ const Features = () => {
           <h1 className="bento-title special-font text-4xl md:text-5xl text-blue-50 ">
             {t('features.intro-title')}
           </h1>
-          {/* <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-            {t('features.intro-text')}
-          </p> */}
         </div>
 
         <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
@@ -165,8 +159,6 @@ const Features = () => {
                 {t('features.feature1-title')}
               </>
             }
-            // description={t('features.feature1-text')}
-            // isComingSoon
           />
         </BentoTilt>
 
@@ -182,7 +174,6 @@ const Features = () => {
                   {t('features.feature2-title')}
                 </>
               }
-
             />
           </BentoTilt>
 
@@ -197,7 +188,6 @@ const Features = () => {
                   {t('features.feature3-title')}
                 </>
               }
-              // description={t('features.feature3-text')}
             />
           </BentoTilt>
 
@@ -210,7 +200,6 @@ const Features = () => {
                   {t('features.feature4-title')}
                 </>
               }
-              // description={t('features.feature4-text')}
             />
           </BentoTilt>
         </div>

@@ -17,7 +17,7 @@ const About = () => {
 
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
           <div className="mb-6">
-            <p className="font-general text-2xl uppercase md:text-3xl lg:text-4xl text-white">
+            <p className="font-robert-regular font-black text-2xl uppercase md:text-3xl lg:text-4xl text-white">
               {t("about.welcome")}
             </p>
             <AnimatedTitle
@@ -26,7 +26,7 @@ const About = () => {
             />
           </div>
 
-          <div className="about-subtext text-white">
+          <div className="about-subtext font-robert-regular font-black text-white">
             {t("about.subtext")}
           </div>
         </div>

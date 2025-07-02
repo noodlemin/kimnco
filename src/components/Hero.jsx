@@ -55,7 +55,7 @@ const Hero = () => {
               Kim & Co
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-2xl text-blue-100" dangerouslySetInnerHTML={{ __html: t('hero.tagline')}} />
+            <p className="mb-5 max-w-64 font-robert-regular font-black text-2xl text-blue-100" dangerouslySetInnerHTML={{ __html: t('hero.tagline')}} />
 
           </div>
         </div>
