@@ -115,8 +115,8 @@ export const BentoCard = ({ src, poster, title, description, lang, propertyType}
           onMouseMove={handleMouseMove}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          // The fix is here: md:text-xl was changed to md:text-base
-          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white self-end font-robert-regular font-black md:text-base"
+          // The fix is here: Changed px-5 to pl-4 and pr-5 for balanced padding.
+          className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black pl-4 pr-5 py-2 text-xs uppercase text-white self-end font-semibold md:text-base"
         >
           <div
             className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
